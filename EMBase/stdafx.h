@@ -1,12 +1,8 @@
-// stdafx.h : 标准系统包含文件的包含文件，
-// 或是常用但不常更改的项目特定的包含文件
-//
-
 #pragma once
 
 #ifdef WIN32
 
-#define WIN32_LEAN_AND_MEAN		// 从 Windows 头中排除极少使用的资料
+#define WIN32_LEAN_AND_MEAN
 
 #include <iostream>
 #include <tchar.h>

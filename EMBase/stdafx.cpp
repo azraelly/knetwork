@@ -1,7 +1,3 @@
-// stdafx.cpp : 只包括标准包含文件的源文件
-// EMBase.pch 将成为预编译头
-// stdafx.obj 将包含预编译类型信息
-
 #include "stdafx.h"
 
 #ifdef _WIN32
@@ -20,7 +16,7 @@ unsigned int GenerateSSRC(void)
 {
 #ifdef WIN32
 	LARGE_INTEGER frequence, privious;
-	if(!QueryPerformanceFrequency( &frequence))//取高精度运行计数器的频率
+	if(!QueryPerformanceFrequency( &frequence))
 	{
 		return (unsigned int)timeGetTime();
 	}
@@ -29,8 +25,8 @@ unsigned int GenerateSSRC(void)
 		return (unsigned int)timeGetTime();
 	}
 
-	DWORD dwRet = (DWORD)(1000000 * privious.QuadPart / frequence.QuadPart ); //换算到微秒数
-	return dwRet;//微秒
+	DWORD dwRet = (DWORD)(1000000 * privious.QuadPart / frequence.QuadPart ); 
+	return dwRet;
 #else
 	struct timeval now;
 	gettimeofday(&now,NULL);
