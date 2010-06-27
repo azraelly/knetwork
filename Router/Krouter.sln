@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Krouter", "Krouter.vcproj", "{FD0309CA-2C5F-4400-B142-9471E27E42F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E711C59-E793-4004-B533-B9CA76491BE5} = {8E711C59-E793-4004-B533-B9CA76491BE5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EMBase", "..\EMBase\EMBase.vcproj", "{8E711C59-E793-4004-B533-B9CA76491BE5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "..\Test\Test.vcproj", "{29047291-FECA-1BAD-3FA6-8A66033F4E61}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FD0309CA-2C5F-4400-B142-9471E27E42F8}.Debug.ActiveCfg = Debug|Win32
+		{FD0309CA-2C5F-4400-B142-9471E27E42F8}.Debug.Build.0 = Debug|Win32
+		{FD0309CA-2C5F-4400-B142-9471E27E42F8}.Release.ActiveCfg = Release|Win32
+		{FD0309CA-2C5F-4400-B142-9471E27E42F8}.Release.Build.0 = Release|Win32
+		{8E711C59-E793-4004-B533-B9CA76491BE5}.Debug.ActiveCfg = Debug|Win32
+		{8E711C59-E793-4004-B533-B9CA76491BE5}.Debug.Build.0 = Debug|Win32
+		{8E711C59-E793-4004-B533-B9CA76491BE5}.Release.ActiveCfg = Release|Win32
+		{8E711C59-E793-4004-B533-B9CA76491BE5}.Release.Build.0 = Release|Win32
+		{29047291-FECA-1BAD-3FA6-8A66033F4E61}.Debug.ActiveCfg = Debug|Win32
+		{29047291-FECA-1BAD-3FA6-8A66033F4E61}.Debug.Build.0 = Debug|Win32
+		{29047291-FECA-1BAD-3FA6-8A66033F4E61}.Release.ActiveCfg = Release|Win32
+		{29047291-FECA-1BAD-3FA6-8A66033F4E61}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
