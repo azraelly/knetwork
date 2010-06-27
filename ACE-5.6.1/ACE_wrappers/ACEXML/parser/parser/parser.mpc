@@ -1,0 +1,14 @@
+//  -*- MPC -*-
+// $Id: parser.mpc 76299 2007-01-03 15:51:37Z elliott_c $
+
+project(ACEXML_Parser): acelib, install {
+  avoids       += ace_for_tao
+  sharedname    = ACEXML_Parser
+  after        += ACEXML
+  libs         += ACEXML
+  dynamicflags += ACEXML_PARSER_BUILD_DLL
+
+  Pkgconfig_Files {
+    ACEXML_Parser.pc.in
+  }
+}

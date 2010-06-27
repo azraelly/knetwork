@@ -1,0 +1,18 @@
+// -*- MPC -*-
+// $Id: active_objects.mpc 69659 2005-11-26 03:13:13Z ossama $
+
+project(AO) : aceexe {
+  avoids += ace_for_tao
+  exename = AO
+  Source_Files {
+    AO.cpp
+  }
+}
+
+project(AO2) : aceexe {
+  avoids += ace_for_tao
+  exename = AO2
+  Source_Files {
+    AO2.cpp
+  }
+}

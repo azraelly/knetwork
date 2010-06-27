@@ -1,0 +1,17 @@
+// -*- MPC -*-
+// $Id: OS_Process.mpc 78769 2007-07-03 21:07:53Z shuston $
+
+project(*imore) : aceexe {
+  avoids += ace_for_tao
+  exename = imore
+  Source_Files {
+    imore.cpp
+  }
+}
+project(*process) : aceexe {
+  avoids += wince
+  exename = process
+  Source_Files {
+    process.cpp
+  }
+}

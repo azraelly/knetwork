@@ -1,0 +1,96 @@
+# Makefile for building the HTTPU library with Borland C++ Make
+
+NAME = HTTPU
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\http_base.$(OBJ_EXT) \
+	$(OBJDIR)\http_headers.$(OBJ_EXT) \
+	$(OBJDIR)\http_request.$(OBJ_EXT) \
+	$(OBJDIR)\http_response.$(OBJ_EXT) \
+	$(OBJDIR)\http_status.$(OBJ_EXT) \
+	$(OBJDIR)\parse_http_request.$(OBJ_EXT) \
+	$(OBJDIR)\parse_http_response.$(OBJ_EXT) \
+	$(OBJDIR)\parse_url.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\..\..\lib" \
+        -j"..\..\..\lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	JAWS2$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+DLL_FLAGS = \
+        -DHTTPU_BUILD_DLL
+!endif
+
+CFLAGS = \
+	-I"..\..\.." \
+	-I".." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\apps\JAWS2\HTTPU
+
+#
+# pkgconfig_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+BINDIR = ..\..\..\lib
+
+!include <$(ACE_ROOT)\include\makeinclude\build_library.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_base.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_base.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_headers.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_headers.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_request.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_request.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_response.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_response.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_status.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_status.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y parse_http_request.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\parse_http_request.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y parse_http_response.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\parse_http_response.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y parse_url.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\parse_url.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_base.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_base.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_headers.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_headers.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_request.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_request.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_response.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_response.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y http_status.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\http_status.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y parse_http_request.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\parse_http_request.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y parse_http_response.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\parse_http_response.inl 1> NUL
+
+realclean:
+        @-rem
+

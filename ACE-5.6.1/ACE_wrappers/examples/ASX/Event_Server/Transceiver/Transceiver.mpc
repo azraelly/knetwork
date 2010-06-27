@@ -1,0 +1,9 @@
+// -*- MPC -*-
+// $Id: Transceiver.mpc 65556 2005-04-19 06:53:22Z jwillemsen $
+
+project(*) : aceexe {
+  exename = Transceiver
+  Source_Files {
+    transceiver.cpp
+  }
+}

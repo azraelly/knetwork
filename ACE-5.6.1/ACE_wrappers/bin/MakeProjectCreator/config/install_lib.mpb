@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: install_lib.mpb 66694 2005-06-29 04:09:04Z jtc $
+
+project {
+  specific {
+    install_this_target = 1
+  }
+}

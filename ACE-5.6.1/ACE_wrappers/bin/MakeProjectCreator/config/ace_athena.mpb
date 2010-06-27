@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: ace_athena.mpb 63430 2005-01-23 11:53:28Z mbrudka $
+
+project: ace_xt {
+  requires += athena
+  lit_libs += Xaw
+}

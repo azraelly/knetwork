@@ -1,0 +1,9 @@
+// -*- MPC -*-
+// $Id: script.mpb 60780 2004-09-28 02:03:48Z jtc $
+
+project {
+  Define_Custom(Script) {
+    automatic = 1
+    inputext = .sh 
+  }
+}

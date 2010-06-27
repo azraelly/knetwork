@@ -1,0 +1,77 @@
+# Makefile for building the ACEXML_Parser library with Borland C++ Make
+
+NAME = ACEXML_Parser
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\Entity_Manager.$(OBJ_EXT) \
+	$(OBJDIR)\Parser.$(OBJ_EXT) \
+	$(OBJDIR)\ParserContext.$(OBJ_EXT) \
+	$(OBJDIR)\ParserInternals.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\..\..\lib" \
+        -j"..\..\..\lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	ACEXML$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+DLL_FLAGS = \
+        -DACEXML_PARSER_BUILD_DLL
+!endif
+
+CFLAGS = \
+	-I"..\..\.." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\ACEXML\parser\parser
+
+#
+# pkgconfig_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INSTALL_THIS_TARGET = 1
+
+INCLUDES_INSTALL=1
+BINDIR = ..\..\..\lib
+
+!include <$(ACE_ROOT)\include\makeinclude\build_library.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Entity_Manager.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Entity_Manager.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Parser.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Parser.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Parser_export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Parser_export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ParserContext.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ParserContext.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ParserInternals.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ParserInternals.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Entity_Manager.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Entity_Manager.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Parser.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Parser.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ParserContext.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\ParserContext.inl 1> NUL
+
+realclean:
+        @-rem
+

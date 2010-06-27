@@ -1,0 +1,10 @@
+// -*- MPC -*-
+// $Id: htbp.mpb 78143 2007-04-20 14:41:35Z mitza $
+
+project : acelib {
+  avoids   += ace_for_tao   // Requires ACE_Configuration_Heap
+  requires += ace_uuid
+  after    += HTBP
+  libs     += ACE_HTBP
+  includes += $(ACE_ROOT)/protocols
+}

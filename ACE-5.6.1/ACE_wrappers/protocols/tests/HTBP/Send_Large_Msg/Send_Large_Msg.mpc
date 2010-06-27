@@ -1,0 +1,19 @@
+// -*- MPC -*-
+//
+// $Id: Send_Large_Msg.mpc 79484 2007-08-22 21:44:32Z mesnier_p $
+
+project(*Server): aceexe, htbp {
+  exename = server
+
+  Source_Files {
+    server.cpp
+  }
+}
+
+project(*Client): aceexe, htbp {
+  exename = client
+
+  Source_Files {
+    client.cpp
+  }
+}

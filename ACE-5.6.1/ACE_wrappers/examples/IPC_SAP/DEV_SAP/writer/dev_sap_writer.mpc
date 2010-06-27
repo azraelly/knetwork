@@ -1,0 +1,11 @@
+// -*- MPC -*-
+// $Id: dev_sap_writer.mpc 69659 2005-11-26 03:13:13Z ossama $
+
+project : aceexe {
+  avoids += ace_for_tao
+  exename = writer
+  Source_Files {
+    writer.cpp
+  }
+}
+

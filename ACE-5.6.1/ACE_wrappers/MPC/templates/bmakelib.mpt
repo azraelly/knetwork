@@ -1,0 +1,21 @@
+// -*- MPC -*-
+// $Id: bmakelib.mpt 1050 2006-08-31 23:19:39Z elliott_c $
+
+conditional_include "bmakecommon"
+
+Release {
+  optimize         = 1
+  defines          = NDEBUG
+  intermediate_dir = Static_Release
+  lib_modifier     = s
+}
+
+Debug {
+  optimize         =
+  debug_prj        = 1
+  defines          = _DEBUG
+  intermediate_dir = Static_Debug
+  lib_modifier     = sd
+}
+
+conditional_include "user_bmakelib"

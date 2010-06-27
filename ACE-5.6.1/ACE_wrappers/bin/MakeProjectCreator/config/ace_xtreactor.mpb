@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: ace_xtreactor.mpb 63430 2005-01-23 11:53:28Z mbrudka $
+
+project : acelib, ace_xt {
+  requires += ace_xtreactor
+  after    += ACE_XtReactor
+  libs     += ACE_XtReactor
+}

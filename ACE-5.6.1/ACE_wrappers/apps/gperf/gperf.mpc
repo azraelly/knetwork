@@ -1,0 +1,9 @@
+// -*- MPC -*-
+// $Id: gperf.mpc 70055 2005-12-27 21:35:39Z jtc $
+
+project (gperf_docs) : man {
+
+  Man_Files {
+    gperf.1
+  }
+}

@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: ace_foxreactor.mpb 78098 2007-04-18 12:11:53Z johnnyw $
+
+project : acelib, ace_fox {
+  requires += ace_foxreactor
+  after    += ACE_FoxReactor
+  libs     += ACE_FoxReactor
+}

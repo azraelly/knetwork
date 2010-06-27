@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: Synch_Benchmarks_Synch_Lib.mpc 60685 2004-09-24 14:35:10Z shuston $
+
+project(Synch_Lib) : acelib {
+  sharedname = Synch_Lib
+  dynamicflags += SYNCHLIB_BUILD_DLL
+}

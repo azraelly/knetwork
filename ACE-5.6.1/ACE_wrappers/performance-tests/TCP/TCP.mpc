@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: TCP.mpc 69308 2005-11-11 17:26:34Z isisbuilds $
+
+project : aceexe {
+  avoids += ace_for_tao
+  exename = tcp_test
+}

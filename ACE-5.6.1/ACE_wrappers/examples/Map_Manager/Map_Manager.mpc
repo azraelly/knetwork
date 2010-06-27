@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: Map_Manager.mpc 70805 2006-02-02 15:48:13Z elliott_c $
+
+project: aceexe {
+  exename = Map_Manager
+}

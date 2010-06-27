@@ -1,0 +1,11 @@
+// -*- MPC -*-
+// $Id: Dump_Restore.mpc 78610 2007-06-27 14:03:35Z shuston $
+
+project(Netsvcs_Dump_Restore) : aceexe {
+  avoids  += ace_for_tao
+  exename  = dump_restore
+  Source_Files {
+    main.cpp
+    Dump_Restore.cpp
+  }
+}

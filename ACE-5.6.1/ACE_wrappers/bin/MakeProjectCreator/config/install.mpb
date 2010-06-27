@@ -1,0 +1,5 @@
+// -*- MPC -*-
+// $Id: install.mpb 66694 2005-06-29 04:09:04Z jtc $
+
+project : install_bin, install_lib, install_headers {
+}

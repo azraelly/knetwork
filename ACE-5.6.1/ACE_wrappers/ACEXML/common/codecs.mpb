@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: codecs.mpb 74959 2006-10-23 23:31:55Z ossama $
+
+feature(ace_codecs, !ace_for_tao) {
+  Source_Files {
+    XML_Codecs.cpp
+  }
+}

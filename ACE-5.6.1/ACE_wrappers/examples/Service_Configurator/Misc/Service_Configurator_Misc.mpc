@@ -1,0 +1,18 @@
+// -*- MPC -*-
+// $Id: Service_Configurator_Misc.mpc 75224 2006-11-06 12:59:41Z johnnyw $
+
+project(*Timer) : acelib {
+  sharedname = Timer
+  dynamicflags += ACE_BUILD_SVC_DLL
+  Source_Files {
+    Timer_Service.cpp
+  }
+}
+project(*Main) : aceexe {
+  exename = main
+  after += Service_Configurator_Misc_Timer
+  libs  += Timer
+  Source_Files {
+    main.cpp
+  }
+}

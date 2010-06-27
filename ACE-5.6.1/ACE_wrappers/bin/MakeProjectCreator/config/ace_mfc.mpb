@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: ace_mfc.mpb 74019 2006-08-14 15:59:55Z sma $
+
+project: mfc {
+  macros += ACE_HAS_MFC=1
+}

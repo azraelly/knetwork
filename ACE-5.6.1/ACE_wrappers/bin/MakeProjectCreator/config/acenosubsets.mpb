@@ -1,0 +1,10 @@
+// -*- MPC -*-
+//
+// $Id: acenosubsets.mpb 68456 2005-10-03 18:21:05Z ossama $
+
+feature(!ace_for_tao) {
+
+  after    += ACE
+  libs     += ACE
+
+}

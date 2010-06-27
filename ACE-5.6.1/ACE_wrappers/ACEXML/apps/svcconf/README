@@ -1,0 +1,4 @@
+$Id: README 44786 2002-05-08 21:54:10Z nanbor $
+
+This directory implement a DLL that contains the parser for XML based
+service configurator.

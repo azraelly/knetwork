@@ -1,0 +1,20 @@
+// -*- MPC -*-
+//
+// $Id: SendRecv_Test.mpc 79343 2007-08-14 21:49:55Z mesnier_p $
+//
+
+project(*server): aceexe, htbp {
+  exename = server
+
+  Source_Files {
+     server.cpp
+  }
+}
+
+project(*client): aceexe, htbp {
+  exename = client
+
+  Source_Files {
+     client.cpp
+  }
+}

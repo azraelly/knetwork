@@ -1,0 +1,16 @@
+// -*- MPC -*-
+// $Id: Synch_Benchmarks_Base_Test.mpc 75492 2006-11-22 18:32:10Z jtc $
+
+project : acelib {
+  sharedname = Base_Test
+  avoids   += ace_for_tao
+  after    += Synch_Lib
+  libs     += Synch_Lib
+  libpaths += ../Synch_Lib
+
+  specific (automake) {
+    includes += $(srcdir)/..
+  } else {
+    includes += ..
+  }
+}

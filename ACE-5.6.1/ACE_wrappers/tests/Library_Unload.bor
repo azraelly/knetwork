@@ -1,0 +1,132 @@
+# Makefile for building the UnloadLibACE exe with Borland C++ Make
+
+NAME = UnloadLibACE
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\Unload_libACE.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"." 
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+!endif
+
+CFLAGS = \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\tests
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+
+BASE_BINDIR = .
+
+!include <$(ACE_ROOT)\include\makeinclude\build_exe.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ACE_Init_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ACE_Init_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ACE_Init_Test_Resource.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ACE_Init_Test_Resource.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ACE_Init_Test_StdAfx.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ACE_Init_Test_StdAfx.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y ACE_Init_TestDlg.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\ACE_Init_TestDlg.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Bound_Ptr_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Bound_Ptr_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Map_Manager_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Map_Manager_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cached_Accept_Conn_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cached_Accept_Conn_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cached_Conn_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cached_Conn_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y CE_fostream.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\CE_fostream.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Collection_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Collection_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Config_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Config_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Conn_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Conn_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DLL_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DLL_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DLL_Test_Impl.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DLL_Test_Impl.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DLL_Test_Parent.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DLL_Test_Parent.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DLL_Test_Parent_Export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DLL_Test_Parent_Export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Framework_Component_DLL.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Framework_Component_DLL.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Framework_Component_DLL_Export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Framework_Component_DLL_Export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Framework_Component_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Framework_Component_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Malloc_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Malloc_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Map_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Map_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Max_Default_Port_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Max_Default_Port_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y MEM_Stream_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\MEM_Stream_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Message_Queue_Test_Ex.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Message_Queue_Test_Ex.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y MT_Reactor_Timer_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\MT_Reactor_Timer_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Network_Adapters_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Network_Adapters_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y NonBlocking_Conn_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\NonBlocking_Conn_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Priority_Reactor_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Priority_Reactor_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Proactor_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Proactor_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Process_Strategy_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Process_Strategy_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y QtReactor_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\QtReactor_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y randomize.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\randomize.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y RB_Tree_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\RB_Tree_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Reactor_Performance_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Reactor_Performance_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Refcounted_Auto_Ptr_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Refcounted_Auto_Ptr_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Service_Config_DLL.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Service_Config_DLL.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Service_Config_DLL_Export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Service_Config_DLL_Export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Task_Ex_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Task_Ex_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y test_config.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\test_config.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Test_Output_Export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Test_Output_Export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Thread_Pool_Reactor_Resume_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Thread_Pool_Reactor_Resume_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Thread_Pool_Reactor_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Thread_Pool_Reactor_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y TP_Reactor_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\TP_Reactor_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y TSS_Test_Errno.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\TSS_Test_Errno.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Upgradable_RW_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Upgradable_RW_Test.h 1> NUL
+
+realclean:
+        @-rem
+

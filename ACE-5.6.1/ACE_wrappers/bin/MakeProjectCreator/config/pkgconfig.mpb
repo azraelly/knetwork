@@ -1,0 +1,9 @@
+// -*- MPC -*-
+// $Id: pkgconfig.mpb 63349 2005-01-20 06:31:25Z jtc $
+
+project {
+  Define_Custom(pkgconfig) {
+    automatic = 0
+    inputext = .in
+  }
+}

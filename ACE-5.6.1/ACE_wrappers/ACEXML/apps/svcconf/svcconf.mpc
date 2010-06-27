@@ -1,0 +1,6 @@
+//  -*- MPC -*-
+// $Id: svcconf.mpc 76299 2007-01-03 15:51:37Z elliott_c $
+
+project(ACEXML_XML_Svc_Conf_Parser): acelib, acexml, install {
+  sharedname = ACEXML_XML_Svc_Conf_Parser
+}

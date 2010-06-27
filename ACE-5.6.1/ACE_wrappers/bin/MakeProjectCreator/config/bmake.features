@@ -1,0 +1,7 @@
+// $Id: bmake.features 67787 2005-08-22 09:36:19Z jwillemsen $
+
+ssl=0
+qos=1
+cidl=0
+rwho=0
+sctp=0

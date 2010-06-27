@@ -1,0 +1,10 @@
+// -*- MPC -*-
+// $Id: vc8nmake.mpb 77686 2007-03-12 23:26:42Z ossama $
+
+project {
+  specific(nmake) {
+    compile_flags -= /EHsc
+    compile_flags += /EHa
+  }
+}
+

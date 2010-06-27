@@ -1,0 +1,135 @@
+# Makefile for building the JAWS2 library with Borland C++ Make
+
+NAME = JAWS2
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\Assoc_Array.$(OBJ_EXT) \
+	$(OBJDIR)\Cache_Manager.$(OBJ_EXT) \
+	$(OBJDIR)\Cache_Object.$(OBJ_EXT) \
+	$(OBJDIR)\Concurrency.$(OBJ_EXT) \
+	$(OBJDIR)\Data_Block.$(OBJ_EXT) \
+	$(OBJDIR)\FILE.$(OBJ_EXT) \
+	$(OBJDIR)\Filecache.$(OBJ_EXT) \
+	$(OBJDIR)\Headers.$(OBJ_EXT) \
+	$(OBJDIR)\IO.$(OBJ_EXT) \
+	$(OBJDIR)\IO_Acceptor.$(OBJ_EXT) \
+	$(OBJDIR)\IO_Handler.$(OBJ_EXT) \
+	$(OBJDIR)\Parse_Headers.$(OBJ_EXT) \
+	$(OBJDIR)\Pipeline.$(OBJ_EXT) \
+	$(OBJDIR)\Pipeline_Tasks.$(OBJ_EXT) \
+	$(OBJDIR)\Policy.$(OBJ_EXT) \
+	$(OBJDIR)\Reaper.$(OBJ_EXT) \
+	$(OBJDIR)\Server.$(OBJ_EXT) \
+	$(OBJDIR)\Waiter.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\..\..\lib" \
+        -j"..\..\..\lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+DLL_FLAGS = \
+        -DJAWS_BUILD_DLL
+!endif
+
+CFLAGS = \
+	-I"..\..\.." \
+	-I".." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\apps\JAWS2\JAWS
+
+#
+# pkgconfig_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+BINDIR = ..\..\..\lib
+
+!include <$(ACE_ROOT)\include\makeinclude\build_library.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Assoc_Array.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Assoc_Array.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Hash_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Hash_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Heap_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Heap_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_List_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_List_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Manager.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Manager.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Manager_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Manager_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Object.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Object.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Concurrency.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Concurrency.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Data_Block.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Data_Block.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Export.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Export.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y FILE.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\FILE.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Filecache.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Filecache.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Hash_Bucket_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Hash_Bucket_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Headers.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Headers.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y IO.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\IO.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y IO_Acceptor.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\IO_Acceptor.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y IO_Handler.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\IO_Handler.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Parse_Headers.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Parse_Headers.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Pipeline.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Pipeline.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Pipeline_Handler_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Pipeline_Handler_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Pipeline_Tasks.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Pipeline_Tasks.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Policy.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Policy.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Reaper.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Reaper.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Server.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Server.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Waiter.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Waiter.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Hash_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Hash_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Heap_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Heap_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_List_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_List_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Cache_Manager_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Cache_Manager_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Hash_Bucket_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Hash_Bucket_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Pipeline_Handler_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Pipeline_Handler_T.cpp 1> NUL
+
+realclean:
+        @-rem
+

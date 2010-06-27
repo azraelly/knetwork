@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: NT_Service.mpc 71351 2006-03-01 23:48:42Z shuston $
+
+project : aceexe, winregistry {
+  avoids += wince
+  exename = main
+}

@@ -1,0 +1,17 @@
+// -*- MPC -*-
+// $Id: streams.mpc 69659 2005-11-26 03:13:13Z ossama $
+
+project(Answerer) : aceexe {
+  avoids   += ace_for_tao
+  exename   = Answerer
+  requires += threads
+  Source_Files {
+    Answerer.cpp
+    CommandModule.cpp
+    CommandStream.cpp
+    CommandTask.cpp
+    CommandTasks.cpp
+    RecordingDeviceFactory.cpp
+    RecordingDevice_Text.cpp
+  }
+}

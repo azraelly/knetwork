@@ -1,0 +1,14 @@
+//  -*- MPC -*-
+//
+// $Id: ace.mwc 69659 2005-11-26 03:13:13Z ossama $
+
+workspace {
+  ace.mpc
+  ace_for_tao.mpc
+  ace_flreactor.mpc
+  ace_qtreactor.mpc
+  ace_tkreactor.mpc
+  ace_xtreactor.mpc
+  QoS
+  SSL
+}

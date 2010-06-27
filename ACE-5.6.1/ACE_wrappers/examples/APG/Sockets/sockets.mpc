@@ -1,0 +1,30 @@
+// -*- MPC -*-
+// $Id: sockets.mpc 56387 2004-03-12 13:20:06Z jwillemsen $
+
+project(*Basic) : aceexe {
+  exename = Basic
+  Source_Files {
+    Basic.cpp
+  }
+}
+
+project(*Basic Robust) : aceexe {
+  exename = Basic_Robust
+  Source_Files {
+    Basic_Robust.cpp
+  }
+}
+
+project(*Iovec) : aceexe {
+  exename = Iovec
+  Source_Files {
+    Iovec.cpp
+  }
+}
+
+project(*Server) : aceexe {
+  exename = Server
+  Source_Files {
+    Server.cpp
+  }
+}

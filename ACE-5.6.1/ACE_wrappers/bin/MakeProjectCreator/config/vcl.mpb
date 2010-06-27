@@ -1,0 +1,16 @@
+// -*- MPC -*-
+// $Id: vcl.mpb 78084 2007-04-18 09:46:48Z johnnyw $
+
+project {
+  requires += vcl
+  macros   += ACE_HAS_VCL=1
+  specific(bmake, borland, bds4) {
+     use_vcl        = 1
+     lit_libs      += rtl vcl
+     compile_flags += -tW -tWV
+     linkflags     += -aa
+  }
+  verbatim(borland,macros) {
+    VCL=1
+  }
+}

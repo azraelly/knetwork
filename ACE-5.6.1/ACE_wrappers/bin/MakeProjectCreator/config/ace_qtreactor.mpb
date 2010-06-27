@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: ace_qtreactor.mpb 63430 2005-01-23 11:53:28Z mbrudka $
+
+project : acelib, ace_qt {
+  requires += ace_qtreactor
+  after    += ACE_QtReactor
+  libs     += ACE_QtReactor
+}

@@ -1,0 +1,12 @@
+//  -*- MPC -*-
+// $Id: HTBP.mpc 76299 2007-01-03 15:51:37Z elliott_c $
+
+project(HTBP) : acelib, install {
+  avoids      += ace_for_tao
+  sharedname   = ACE_HTBP
+  dynamicflags = HTBP_BUILD_DLL
+
+  Pkgconfig_Files {
+    ACE_HTBP.pc.in
+  }
+}

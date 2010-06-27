@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: IOStream_Client.mpc 74778 2006-10-16 11:55:11Z johnnyw $
+
+project : aceexe {
+  exename = iostream_client
+}

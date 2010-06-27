@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: Member.mpc 64010 2005-02-15 22:42:10Z jtc $
+
+project: aceexe, tmcast {
+  exename = member
+}
+

@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: gnudll.mpt 62718 2004-12-13 16:17:58Z elliott_c $
+
+conditional_include "common"
+
+targetoutdir =

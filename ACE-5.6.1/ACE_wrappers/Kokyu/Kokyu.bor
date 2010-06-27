@@ -1,0 +1,107 @@
+# Makefile for building the Kokyu library with Borland C++ Make
+
+NAME = Kokyu
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\Default_Dispatcher_Impl.$(OBJ_EXT) \
+	$(OBJDIR)\Dispatcher_Impl.$(OBJ_EXT) \
+	$(OBJDIR)\Dispatcher_Task.$(OBJ_EXT) \
+	$(OBJDIR)\Kokyu.$(OBJ_EXT) \
+	$(OBJDIR)\Kokyu_defs.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\lib" \
+        -j"..\lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+DLL_FLAGS = \
+        -DKOKYU_BUILD_DLL
+!endif
+
+CFLAGS = \
+	-I".." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\Kokyu
+
+#
+# pkgconfig_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INSTALL_THIS_TARGET = 1
+
+INCLUDES_INSTALL=1
+BINDIR = ..\lib
+
+!include <$(ACE_ROOT)\include\makeinclude\build_library.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Default_Dispatcher_Impl.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Default_Dispatcher_Impl.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Dispatcher_Impl.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Dispatcher_Impl.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Dispatcher_Task.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Dispatcher_Task.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Direct_Dispatcher_Impl_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Direct_Dispatcher_Impl_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatch_Item_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatch_Item_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatcher_Impl_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatcher_Impl_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Sched_Queue_T.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Sched_Queue_T.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu_defs.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu_defs.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu_dsrt.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu_dsrt.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Direct_Dispatcher_Impl_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Direct_Dispatcher_Impl_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatch_Item_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatch_Item_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatcher_Impl_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatcher_Impl_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Sched_Queue_T.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Sched_Queue_T.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu_dsrt.cpp $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu_dsrt.cpp 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Default_Dispatcher_Impl.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Default_Dispatcher_Impl.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Dispatcher_Impl.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Dispatcher_Impl.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Dispatcher_Task.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Dispatcher_Task.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatch_Item_T.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatch_Item_T.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y DSRT_Dispatcher_Impl_T.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\DSRT_Dispatcher_Impl_T.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu_defs.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu_defs.inl 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Kokyu_dsrt.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Kokyu_dsrt.inl 1> NUL
+
+realclean:
+        @-rem
+

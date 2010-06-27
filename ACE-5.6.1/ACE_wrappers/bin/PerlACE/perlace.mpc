@@ -1,0 +1,12 @@
+//  -*- MPC -*-
+// $Id: perlace.mpc 61837 2004-11-12 22:28:16Z shuston $
+
+project(PerlACE) : script {
+  Script_Files {
+    ConfigList.pm
+    Process.pm
+    Process_Unix.pm
+    Process_Win32.pm
+    Run_Test.pm
+  }
+}

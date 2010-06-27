@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: wfmo.mpb 54940 2003-12-30 15:18:23Z dhinton $
+
+feature(wfmo) {
+  requires += wfmo
+}

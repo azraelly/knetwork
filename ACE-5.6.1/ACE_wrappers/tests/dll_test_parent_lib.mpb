@@ -1,0 +1,10 @@
+// -*- MPC -*-
+//
+// $Id: dll_test_parent_lib.mpb 68676 2005-10-12 19:16:58Z ossama $
+
+project {
+
+  after += DLL_Test_Parent_Lib
+  libs  += DLL_Test_Parent
+
+}

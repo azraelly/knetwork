@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: uuid.mpb 63109 2005-01-05 15:33:19Z parsons $
+
+feature(ace_uuid) {
+  Source_Files(ACE_COMPONENTS) {
+    UUID.cpp
+  }
+}

@@ -1,0 +1,10 @@
+// -*- MPC -*-
+// $Id: Web_Crawler.mpc 74555 2006-09-29 10:01:56Z johnnyw $
+
+project : aceexe {
+  avoids += ace_for_tao
+  exename = main
+  specific(borland, bmake) {
+    avoids += uses_wchar
+  }
+}

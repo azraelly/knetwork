@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: Logger_Simple_Server.mpc 61954 2004-11-18 13:13:25Z elliott_c $
+
+project : aceexe {
+  exename = server_loggerd
+}

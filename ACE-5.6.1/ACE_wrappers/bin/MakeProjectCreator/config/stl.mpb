@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: stl.mpb 73509 2006-07-14 20:32:17Z wotte $
+
+project {
+  requires += stl
+}

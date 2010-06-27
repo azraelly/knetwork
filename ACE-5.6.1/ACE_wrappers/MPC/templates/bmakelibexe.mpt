@@ -1,0 +1,27 @@
+// -*- MPC -*-
+// $Id: bmakelibexe.mpt 1050 2006-08-31 23:19:39Z elliott_c $
+
+conditional_include "bmakecommon"
+
+startup_letter = x
+
+Release {
+  optimize         = 1
+  defines          = NDEBUG
+  output_dir       = Static_Release
+  intermediate_dir = Static_Release
+  lib_modifier     = s
+  postlinkrmext    = .tds
+}
+
+Debug {
+  optimize         =
+  debug_prj        = 1
+  defines          = _DEBUG
+  output_dir       = Static_Debug
+  intermediate_dir = Static_Debug
+  lib_modifier     = sd
+  postlinkrmext    = .tds
+}
+
+conditional_include "user_bmakelibexe"

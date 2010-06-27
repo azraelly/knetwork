@@ -1,0 +1,39 @@
+# Makefile for building the  with Borland C++ Make
+
+
+NO_FULL_PATH=1
+
+LFLAGS = \
+        -L"." \
+        -j"." 
+
+!ifdef STATIC
+!else
+!endif
+
+CFLAGS = \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+#
+# script_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+INSTALL_TYPES = includes
+
+!include <$(ACE_ROOT)\include\makeinclude\install.bor>
+
+all:
+	@-rem
+
+includes_install:
+	@echo Nothing to install.
+
+realclean:
+        @-rem
+

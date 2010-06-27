@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: ConfigViewer.mpc 54744 2003-12-23 20:23:21Z dhinton $
+
+project : aceexe, wxwindows {
+  pch_header = stdafx.h
+  pch_source = stdafx.cpp
+}

@@ -1,0 +1,4 @@
+// $Id: util.mpc 66065 2005-05-23 19:55:19Z michel_j $
+project: aceexe, acexml {
+  exename = test
+}

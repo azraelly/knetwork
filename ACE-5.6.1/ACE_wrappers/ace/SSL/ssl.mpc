@@ -1,0 +1,13 @@
+//  -*- MPC -*-
+// $Id: ssl.mpc 76299 2007-01-03 15:51:37Z elliott_c $
+
+project(SSL) : acelib, install, ace_openssl {
+  avoids      += ace_for_tao
+  requires    += ssl
+  sharedname   = ACE_SSL
+  dynamicflags = ACE_SSL_BUILD_DLL
+
+  pkgconfig_files {
+    ACE_SSL.pc.in
+  }
+}

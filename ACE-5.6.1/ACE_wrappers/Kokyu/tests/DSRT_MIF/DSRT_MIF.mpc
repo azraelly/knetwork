@@ -1,0 +1,7 @@
+//  -*- MPC -*-
+// $Id: DSRT_MIF.mpc 69661 2005-11-26 03:37:24Z ossama $
+
+project: kokyu {
+  avoids += ace_for_tao
+  exename = MIF
+}

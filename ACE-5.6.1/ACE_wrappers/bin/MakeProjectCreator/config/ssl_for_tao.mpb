@@ -1,0 +1,12 @@
+// -*- MPC -*-
+//
+// $Id: ssl_for_tao.mpb 74300 2006-08-28 23:47:15Z ossama $
+
+feature(ace_for_tao) {
+
+// Does not include ACE_SSL asynch stream support.
+
+  after    += SSL_FOR_TAO
+  libs     += ACE_SSL_FOR_TAO
+
+}

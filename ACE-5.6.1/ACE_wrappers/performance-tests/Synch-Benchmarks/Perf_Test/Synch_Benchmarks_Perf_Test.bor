@@ -1,0 +1,87 @@
+# Makefile for building the Perf_Test library with Borland C++ Make
+
+NAME = Perf_Test
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\Adaptive_Lock_Performance_Test_Base.$(OBJ_EXT) \
+	$(OBJDIR)\adaptive_mutex_test.$(OBJ_EXT) \
+	$(OBJDIR)\adaptive_recursive_lock_test.$(OBJ_EXT) \
+	$(OBJDIR)\adaptive_sema_test.$(OBJ_EXT) \
+	$(OBJDIR)\Benchmark_Performance.$(OBJ_EXT) \
+	$(OBJDIR)\condb_test.$(OBJ_EXT) \
+	$(OBJDIR)\conds_test.$(OBJ_EXT) \
+	$(OBJDIR)\context_test.$(OBJ_EXT) \
+	$(OBJDIR)\guard_test.$(OBJ_EXT) \
+	$(OBJDIR)\memory_test.$(OBJ_EXT) \
+	$(OBJDIR)\mutex_test.$(OBJ_EXT) \
+	$(OBJDIR)\Performance_Test.$(OBJ_EXT) \
+	$(OBJDIR)\Performance_Test_Options.$(OBJ_EXT) \
+	$(OBJDIR)\pipe_proc_test.$(OBJ_EXT) \
+	$(OBJDIR)\pipe_thr_test.$(OBJ_EXT) \
+	$(OBJDIR)\recursive_lock_test.$(OBJ_EXT) \
+	$(OBJDIR)\rwrd_test.$(OBJ_EXT) \
+	$(OBJDIR)\rwwr_test.$(OBJ_EXT) \
+	$(OBJDIR)\sema_test.$(OBJ_EXT) \
+	$(OBJDIR)\sysvsema_test.$(OBJ_EXT) \
+	$(OBJDIR)\token_test.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\..\..\lib" \
+        -j"..\..\..\lib"  \
+        -L"..\Synch_Lib" \
+        -j"..\Synch_Lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	Synch_Lib$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+!endif
+
+CFLAGS = \
+	-I"..\..\.." \
+	-I".." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .
+CDIR   = .
+
+INCDIR_NAME = stage-29192\ACE_wrappers\performance-tests\Synch-Benchmarks\Perf_Test
+
+#
+# pkgconfig_files rules
+#
+
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+BINDIR = ..\..\..\lib
+
+!include <$(ACE_ROOT)\include\makeinclude\build_library.bor>
+
+includes_install: $(INCLUDES)
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Adaptive_Lock_Performance_Test_Base.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Adaptive_Lock_Performance_Test_Base.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Benchmark_Performance.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Benchmark_Performance.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Performance_Test.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Performance_Test.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Performance_Test_Options.h $(INSTALL_DIR)\include\$(INCDIR_NAME)\Performance_Test_Options.h 1> NUL
+	-@if not exist $(INSTALL_DIR)\include\$(INCDIR_NAME)\. mkdir $(INSTALL_DIR)\include\$(INCDIR_NAME)\.
+	-&copy /Y Performance_Test_Options.inl $(INSTALL_DIR)\include\$(INCDIR_NAME)\Performance_Test_Options.inl 1> NUL
+
+realclean:
+        @-rem
+

@@ -1,0 +1,15 @@
+// -*- MPC -*-
+// $Id: token.mpb 73522 2006-07-14 21:30:26Z ossama $
+
+feature(ace_token) {
+  macros -= ACE_LACKS_ACE_TOKEN
+
+  Source_Files(ACE_COMPONENTS) {
+    Local_Tokens.cpp
+    Remote_Tokens.cpp
+    Token_Collection.cpp
+    Token_Invariants.cpp
+    Token_Manager.cpp
+    Token_Request_Reply.cpp
+  }
+}

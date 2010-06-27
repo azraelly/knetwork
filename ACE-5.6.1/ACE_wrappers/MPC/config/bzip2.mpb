@@ -1,0 +1,9 @@
+// -*- MPC -*-
+// $Id: bzip2.mpb 923 2006-02-15 16:03:44Z elliott_c $
+
+feature(bzip2) {
+  includes += $(BZIP2_ROOT)/include
+  libpaths += $(BZIP2_ROOT)/lib
+  macros   += USE_BZIP2
+  lit_libs += bz2
+}

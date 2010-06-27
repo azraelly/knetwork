@@ -1,0 +1,19 @@
+// -*- MPC -*-
+//
+// $Id: ping.mpc 61506 2004-11-01 14:43:57Z mesnier_p $
+
+project(*Server): aceexe, htbp {
+  exename = server
+
+  Source_Files {
+    server.cpp
+  }
+}
+
+project(*Client): aceexe, htbp {
+  exename = client
+
+  Source_Files {
+    client.cpp
+  }
+}

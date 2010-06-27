@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: threads.mpb 63061 2005-01-04 17:52:31Z jtc $
+
+project {
+  requires += threads
+}

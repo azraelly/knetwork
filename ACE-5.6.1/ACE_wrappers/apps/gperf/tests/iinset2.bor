@@ -1,0 +1,69 @@
+# Makefile for building the iout2 exe with Borland C++ Make
+
+NAME = iout2
+
+NO_FULL_PATH=1
+
+OBJFILES = \
+	$(OBJDIR)\idl.$(OBJ_EXT) \
+	$(OBJDIR)\test.$(OBJ_EXT)
+
+LFLAGS = \
+        -L"." \
+        -j"."  \
+        -L"..\..\..\lib" \
+        -j"..\..\..\lib" 
+
+LIBFILES = \
+	ACE$(LIB_DECORATOR).lib \
+	$(DUMMY_VALUE_NOT_ENDING_IN_BACKSLASH)
+
+!ifdef STATIC
+LIB_FLAGS = \
+        -DACE_AS_STATIC_LIBS
+!else
+!endif
+
+CFLAGS = \
+	-I"..\..\.." \
+	$(LIB_FLAGS) \
+	$(DLL_FLAGS)
+
+CPPDIR = .;iout2_gen
+CDIR   = .;iout2_gen
+
+#
+# gperf_files rules
+#
+
+
+gperf_files_1= iout2_gen\idl.cpp
+$(gperf_files_1): idl.gperf
+        -if not exist iout2_gen mkdir iout2_gen 2> nul
+	..\..\..\bin\gperf -m -M -c -C -D -E -T -a -o -p idl.gperf > $@
+
+all: $(gperf_files_1)
+
+customclean_gperf_files_1:
+	@del $(gperf_files_1) 2>nul
+
+clean: customclean_gperf_files_1
+
+realclean: customclean_gperf_files_1
+
+
+#
+# Override defaults in outputdir.bor
+#
+INCLUDES_INSTALL=1
+
+BASE_BINDIR = .
+
+!include <$(ACE_ROOT)\include\makeinclude\build_exe.bor>
+
+includes_install:
+	@echo Nothing to install.
+
+realclean:
+        @-rem
+

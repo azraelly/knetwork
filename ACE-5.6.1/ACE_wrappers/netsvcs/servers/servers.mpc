@@ -1,0 +1,16 @@
+// -*- MPC -*-
+// $Id: servers.mpc 78381 2007-05-17 14:08:43Z elliott_c $
+
+project(Netsvcs_server) : aceexe, avoids_ace_for_tao {
+  exename  = main
+  libs     += netsvcs
+  after    += netsvcs
+  includes += $(ACE_ROOT)/netsvcs/lib
+
+  // For automake's sake
+  avoids += ace_for_tao
+
+  Source_Files {
+    main.cpp
+  }
+}

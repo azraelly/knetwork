@@ -1,0 +1,11 @@
+// -*- MPC -*-
+// $Id: file_sap_client.mpc 69659 2005-11-26 03:13:13Z ossama $
+
+project : aceexe {
+  avoids += ace_for_tao
+  exename = client
+  Source_Files {
+    client.cpp
+  }
+}
+

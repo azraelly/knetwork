@@ -1,0 +1,13 @@
+// $Id: next.mpc 63616 2005-01-31 08:28:20Z jwillemsen $
+
+project (asnmp_example_next) : aceexe {
+  exename = next
+  after += asnmp_lib
+  libs  += asnmp
+  avoids += uses_wchar
+  includes += $(ACE_ROOT)/ASNMP
+  source_files {
+    next.cpp
+  }
+}
+
